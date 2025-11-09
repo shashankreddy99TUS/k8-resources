@@ -23,6 +23,24 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: shashanka00315964/nginx:1.0
         ports:
         - containerPort: 80
+---
+
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  selector: # labels are used as selectors
+   app: nginx
+   tier: frontend
+   purpose: deployment
+  ports:
+    - protocol: TCP
+      port: 80 # service port
+      targetPort: 80
+      nodePort: 30007
