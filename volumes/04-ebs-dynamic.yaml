@@ -33,7 +33,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx-lb
+  name: nginx-dynamic
 spec:
   type: LoadBalancer
   selector:
