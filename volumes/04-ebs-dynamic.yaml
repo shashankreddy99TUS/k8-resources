@@ -37,7 +37,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    purpose: "ebs-static-demo"
+    purpose: "ebs-dynamic-demo"
   ports:
     - protocol: TCP
       port: 80
