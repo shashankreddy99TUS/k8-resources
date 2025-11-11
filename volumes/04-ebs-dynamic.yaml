@@ -42,3 +42,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+
+
+#EFS kubectl kustomize \
+    # kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-2.X" > public-ecr-driver.yaml
