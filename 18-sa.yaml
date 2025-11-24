@@ -1,0 +1,11 @@
+kind: pod
+apiVersion: v1
+metadata:
+  name: sa-demo 
+  namespace: expense
+spec:
+ serviceAccount: expense-mysql-server
+
+ containers:
+ - name: nginx
+   image: nginx   

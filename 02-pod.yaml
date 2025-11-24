@@ -8,3 +8,6 @@ spec:
   containers:  
   - name: nginx
     image: nginx 
+
+
+    #arn:aws:iam::221082205666:policy/ExpenseMYSQLSecretRead
