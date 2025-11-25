@@ -15,17 +15,16 @@ spec:
         name: fluentd-elasticsearch
     spec:
       tolerations:
-      # these tolerations are to have the daemonset runnable on control plane nodes
-      # remove them if your control plane nodes should not run pods
       - key: node-role.kubernetes.io/control-plane
         operator: Exists
         effect: NoSchedule
       - key: node-role.kubernetes.io/master
         operator: Exists
         effect: NoSchedule
+
       containers:
       - name: fluentd-elasticsearch
-        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+        image: registry.k8s.io/fluentd-elasticsearch:v2.9.0
         resources:
           limits:
             memory: 200Mi
@@ -36,10 +35,9 @@ spec:
         - name: varlog
           mountPath: /var/log
           readOnly: true
-      # it may be desirable to set a high priority class to ensure that a DaemonSet Pod
-      # preempts running Pods
-      # priorityClassName: important
+
       terminationGracePeriodSeconds: 30
+
       volumes:
       - name: varlog
         hostPath:
